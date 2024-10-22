@@ -1,14 +1,12 @@
 use anyhow::Result;
 
-pub const SIMPLE_DECK: &str = r#"
-name: Hello Mem YAML
+pub const SIMPLE_DECK: &str = r#"name: Hello Mem YAML
 description: A minimal example of a Deck metadata file
 card_files:
   - cards_1.yml
 "#;
 
-pub const SIMPLE_CARDS: &str = r#"
-- name: こんにちわ
+pub const SIMPLE_CARDS: &str = r#"- name: こんにちわ
   content: Hello
   tags:
     - greeting
@@ -18,7 +16,7 @@ pub const SIMPLE_CARDS: &str = r#"
   content: World
 "#;
 
-async fn write_initial_deck(dir: &std::path::Path) -> Result<()> {
+pub(crate) async fn write_initial_deck(dir: &std::path::Path) -> Result<()> {
     let deck_file = dir.join("deck.yaml");
     let cards_file = dir.join("cards_1.yml");
     tokio::fs::write(deck_file, SIMPLE_DECK).await?;

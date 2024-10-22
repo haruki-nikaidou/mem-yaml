@@ -45,6 +45,6 @@ pub struct FsrsOption {
     pub retention: f32,
 }
 
-fn default_retention() -> f32 {
+pub fn default_retention() -> f32 {
     0.75
 }
