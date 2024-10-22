@@ -22,7 +22,7 @@
             inherit pname version;
             hash = "sha256-anSf640Ir4yKnsWRZlnTdJhssgm9EbZ8ayQPdtBemOs=";
           };
-          cargoHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+          cargoHash = "sha256-ikBJUqGmfDheKnxCNrg17pzgUolJLSQaLDXPfwu5zl0=";
           meta = with lib; {
             description = "Anki's alternative for who hates GUI and mouse clicks";
             license = licenses.mit;
@@ -30,14 +30,16 @@
             homepage = "https://github.com/haruki-nikaidou/mem-yaml.git";
           };
         };
+        mem-yaml-exe = flake-utils.lib.mkApp {
+          drv = mem-yaml;
+          exePath = "/bin/mem-yaml";
+        };
       in
       {
         packages.mem-yaml = mem-yaml;
         packages.default = mem-yaml;
-        apps.mem-yaml = flake-utils.lib.mkApp {
-          drv = mem-yaml;
-          exePath = "/bin/mem-yaml";
-        };
+        apps.mem-yaml = mem-yaml-exe;
+        apps.default = mem-yaml-exe;
       }
     );
 }
