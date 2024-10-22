@@ -2,6 +2,7 @@
 name = "mem-yaml"
 version = "0.1.0-alpha"
 edition = "2021"
+license = "MIT"
 authors = ["haruki-nikaidou"]
 repository = "https://github.com/haruki-nikaidou/mem-yaml.git"
 description = "Anki's alternative for who hates GUI and mouse clicks"
